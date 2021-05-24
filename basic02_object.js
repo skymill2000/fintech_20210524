@@ -8,3 +8,7 @@ let car = {
     console.log("engine stop");
   },
 };
+
+console.log(car.name);
+console.log(car.ph);
+console.log(car.start());
