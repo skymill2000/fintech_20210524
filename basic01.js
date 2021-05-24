@@ -13,7 +13,6 @@ const obj = {
 //private int age = 16;
 //private float height = 168.8;
 
-
 console.log(a);
 console.log(b);
 console.log(c);
