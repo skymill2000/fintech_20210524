@@ -37,3 +37,12 @@ console.log(cars);
 //#work 배열에서 bmw 라는 자동차가 있으면 시동을 걸어어주세요
 //array.map 함수를 활용하여 작성 바랍니다.
 //if(condition) if(hour ===  12) { 해당 구문 실행 }
+
+cars.map((car) => {
+  if (car.name === "bmw") {
+    console.log(car.name);
+    car.start();
+  }
+});
+
+//-------------- work ----------------
