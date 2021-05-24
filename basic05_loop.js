@@ -1,14 +1,4 @@
-let carArray = [
-  "bmw",
-  "sonata",
-  "tico",
-  "tico",
-  "tico",
-  "tico",
-  "tico",
-  "tico",
-  "tico",
-];
+let carArray = ["bmw", "sonata", "tico"];
 for (let i = 0; i < carArray.length; i++) {
   let car = carArray[i];
   //   console.log(car);

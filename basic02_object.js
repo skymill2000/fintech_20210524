@@ -12,3 +12,6 @@ let car = {
 console.log(car.name);
 console.log(car.ph);
 console.log(car.start());
+
+console.log("이름은 : " + car.name + "마력은 : " + car.ph);
+console.log(`이름은 ${car.name} 마력은 ${car.ph}`);
