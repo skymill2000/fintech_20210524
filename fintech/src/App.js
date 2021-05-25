@@ -1,9 +1,13 @@
 import logo from "./logo.svg";
 import "./App.css";
 
-const Welcome = (props) => {
-  console.log(props);
-  return <p>안녕하세요 리액트의 컴포넌트중에 하나입니다</p>;
+const Welcome = ({ username, age }) => {
+  console.log(username, age);
+  return (
+    <p>
+      안녕하세요 {username} 님 ! {age} 세 입니다.
+    </p>
+  );
 };
 
 function App() {
