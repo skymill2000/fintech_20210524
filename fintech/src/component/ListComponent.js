@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ListItem from "./ListItem";
 
 const ListComponent = () => {
   const [array, setarray] = useState([
@@ -9,13 +10,7 @@ const ListComponent = () => {
   return (
     <div>
       {array.map((user, index) => {
-        return (
-          <>
-            <h1 key={index}>{user.name}</h1>
-            <h2>{user.age}</h2>
-            <h3>{user.height}</h3>
-          </>
-        );
+        return <ListItem user={user} key={index}></ListItem>;
       })}
     </div>
   );
