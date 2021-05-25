@@ -7,8 +7,8 @@ function App() {
   let [userName, setUserName] = useState("유관우");
 
   const handleChangeName = (e) => {
-    console.log(e.target.value);
-    setUserName(e.target.value);
+    const { value, name } = e.target;
+    setUserName(value);
   };
 
   console.log(userName);
