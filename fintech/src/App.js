@@ -1,15 +1,21 @@
 import logo from "./logo.svg";
 import "./App.css";
 import Welcome from "./component/Welcome";
+import { useState } from "react";
 
 function App() {
+  let [userName, setUserName] = useState("유관우");
+
+  const handleChangeName = (e) => {
+    console.log(e.target.value);
+    setUserName(e.target.value);
+  };
+
+  console.log(userName);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>안녕 리액트야</p>
-        <Welcome userData={{ username: "관우", age: 32 }}></Welcome>
-      </header>
+      <p>{userName} 님 안녕하세요</p>
+      <input onChange={handleChangeName}></input>
     </div>
   );
 }
