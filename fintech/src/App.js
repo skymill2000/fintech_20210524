@@ -1,11 +1,11 @@
 import logo from "./logo.svg";
 import "./App.css";
 
-const Welcome = ({ username, age }) => {
-  console.log(username, age);
+const Welcome = ({ userData }) => {
+  console.log(userData);
   return (
     <p>
-      안녕하세요 {username} 님 ! {age} 세 입니다.
+      안녕하세요 {userData.username} 님 ! {userData.age} 세 입니다.{" "}
     </p>
   );
 };
@@ -16,9 +16,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>안녕 리액트야</p>
-        <Welcome username="유관우" age="33세"></Welcome>
-        <Welcome username="hong gil dong" age="43세"></Welcome>
-        <Welcome username="go gil dong" age="53세"></Welcome>
+        <Welcome userData={{ username: "관우", age: 32 }}></Welcome>
         <a
           className="App-link"
           href="https://reactjs.org"
