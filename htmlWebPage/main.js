@@ -1,0 +1,3 @@
+function testHandler() {
+  alert("hello");
+}
