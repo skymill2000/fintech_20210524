@@ -7,10 +7,11 @@ const AuthButtonStyled = styled.button`
   color: white;
   border: none;
   border-radius: 0.3rem;
+  font-weight: bold;
 `;
 
-const AuthButton = ({ title }) => {
-  return <AuthButtonStyled>{title}</AuthButtonStyled>;
+const AuthButton = ({ title, handleClick }) => {
+  return <AuthButtonStyled onClick={handleClick}>{title}</AuthButtonStyled>;
 
   //<button className="authbuttonstyled"> {title} </button>
 };
