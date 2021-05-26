@@ -1,11 +1,11 @@
 import React from "react";
 
-const Search = ({ handleSearch, handleChangeSearchInput }) => {
+const Search = ({ handleClickSearchButton, handleChangeSearchInput }) => {
   return (
     <div>
       <input onChange={handleChangeSearchInput}></input>
       {/* 이벤트 바인딩 */}
-      <button onClick={handleSearch}>검색</button>
+      <button onClick={handleClickSearchButton}>검색</button>
     </div>
   );
 };

@@ -4,7 +4,7 @@ const NewsList = ({ news }) => {
   return (
     <div>
       {news.map((data) => {
-        return <p>{news.title}</p>;
+        return <p>{data.title}</p>;
       })}
     </div>
   );
