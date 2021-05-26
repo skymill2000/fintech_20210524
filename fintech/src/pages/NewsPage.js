@@ -13,6 +13,7 @@ const NewsPage = () => {
     console.log(value);
     setSearchText(value);
   };
+
   const handleClickSearchButton = () => {
     //   axios 요청 보내기
     console.debug("test");
