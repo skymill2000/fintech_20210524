@@ -24,6 +24,7 @@ const AuthResultPage = () => {
         grant_type: "authorization_code",
       },
     };
+    //#homework : 해당 코드가 동작하게 변경해주세요 ! hint : proxy, json serialization on axios
     axios(option).then((response) => {
       console.log(response.data);
     });
