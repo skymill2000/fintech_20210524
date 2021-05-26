@@ -4,6 +4,10 @@ import Search from "../component/news/Search";
 
 const NewsPage = () => {
   const [news, setnews] = useState([]);
+  const [searchText, setSearchText] = useState("");
+
+  const handleChangeInput = () => {};
+
   return (
     <div>
       <Header title="뉴스검색"></Header>
