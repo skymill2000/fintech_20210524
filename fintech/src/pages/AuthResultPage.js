@@ -4,25 +4,27 @@ import queryString from "query-string";
 import Header from "../component/common/Header";
 import AuthButton from "../component/common/AuthButton";
 import axios from "axios";
+import qs from "qs";
 
 const AuthResultPage = () => {
   const { search } = useLocation();
   const { code } = queryString.parse(search);
 
   const getAccessToken = () => {
+    const sendData = qs.stringify({
+      code: code,
+      client_id: "q7kH44ThJwjpvNRg0BbJvE1yxvx5X53DKz1rNgPF",
+      client_secret: "yVT6irMr2h4ZTHzZY7sDpbvhm1nlOzr4nP7DYRVy",
+      redirect_uri: "http://localhost:3000/authResult",
+      grant_type: "authorization_code",
+    });
     const option = {
       method: "POST",
       url: "/oauth/2.0/token",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
-      data: {
-        code: code,
-        client_id: "q7kH44ThJwjpvNRg0BbJvE1yxvx5X53DKz1rNgPF",
-        client_secret: "yVT6irMr2h4ZTHzZY7sDpbvhm1nlOzr4nP7DYRVy",
-        redirect_uri: "http://localhost:3000/authResult",
-        grant_type: "authorization_code",
-      },
+      data: sendData,
     };
     //#homework : 해당 코드가 동작하게 변경해주세요 ! hint : proxy, json serialization on axios
     axios(option).then((response) => {
