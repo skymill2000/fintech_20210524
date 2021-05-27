@@ -14,7 +14,7 @@ const ListPage = () => {
         Authorization: `bearer ${localStorage.getItem("accessToken")}`,
       },
       params: {
-        user_seq_no: "1100034736",
+        user_seq_no: localStorage.getItem("userSeqNum"),
       },
     };
     //#homework : 해당 코드가 동작하게 변경해주세요 ! hint : proxy, json serialization on axios
