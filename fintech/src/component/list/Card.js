@@ -28,8 +28,9 @@ const QrButton = styled.button`
 const BalanceButton = styled.button`
   width: 120px;
   height: 40px;
-  background: #2959d4;
+  background: #df6a38;
   color: white;
+  margin-left: 10px;
   border: none;
 `;
 
