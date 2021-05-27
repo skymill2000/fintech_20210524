@@ -37,6 +37,8 @@ const AuthResultPage = () => {
       console.log(response.data);
       setaccessToken(response.data.access_token);
       localStorage.setItem("accessToken", response.data.access_token);
+      window.opener.location.href = "/list";
+      window.close();
     });
   };
 
