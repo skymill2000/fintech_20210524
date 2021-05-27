@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import queryString from "query-string";
 import Header from "../component/common/Header";
@@ -10,6 +10,10 @@ const AuthResultPage = () => {
   const { search } = useLocation();
   const { code } = queryString.parse(search);
   const [accessToken, setaccessToken] = useState("토큰 받아오기 전 데이터");
+
+  useEffect(() => {
+    getAccessToken();
+  });
 
   const getAccessToken = () => {
     const sendData = qs.stringify({
@@ -32,6 +36,7 @@ const AuthResultPage = () => {
     axios(option).then((response) => {
       console.log(response.data);
       setaccessToken(response.data.access_token);
+      localStorage.setItem("accessToken", response.data.access_token);
     });
   };
 

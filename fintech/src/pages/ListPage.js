@@ -9,7 +9,7 @@ const ListPage = () => {
   const getAccountList = () => {
     const option = {
       method: "GET",
-      url: "/v2.0/user/me?",
+      url: "/v2.0/user/me",
       headers: {
         Authorization:
           "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiIxMTAwMDM0NzM2Iiwic2NvcGUiOlsiaW5xdWlyeSIsImxvZ2luIiwidHJhbnNmZXIiXSwiaXNzIjoiaHR0cHM6Ly93d3cub3BlbmJhbmtpbmcub3Iua3IiLCJleHAiOjE2Mjk4NTY1ODcsImp0aSI6IjRmMDg3ZTIwLTUwMDAtNDhiMS1iMDY4LTYyYTNhYjA5NWUzZiJ9.P4TiASS3kJxPk2dkPRtaaRKe2WGb5FfRbvzE8xkTrCk",
