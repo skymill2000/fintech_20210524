@@ -26,10 +26,6 @@ const ListPage = () => {
     });
   };
 
-  const handleQrClick = () => {};
-
-  const handleBalaceClick = () => {};
-
   //getAccountList useEffect 활용해서 불러오기 불러온다음에 acountList set 해주기
 
   return (
@@ -41,8 +37,6 @@ const ListPage = () => {
             key={account.fintech_use_num}
             bankName={account.bank_name}
             fintechUseNo={account.fintech_use_num}
-            handleQrClick={handleQrClick}
-            handleBalaceClick={handleBalaceClick}
           ></Card>
         );
       })}

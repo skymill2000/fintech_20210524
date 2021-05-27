@@ -39,7 +39,15 @@ const ButtonBlock = styled.div`
   flex-direction: row;
 `;
 
-const Card = ({ bankName, fintechUseNo, handleQrClick, handleBalaceClick }) => {
+const Card = ({ bankName, fintechUseNo }) => {
+  const handleQrClick = () => {
+    window.location.href = `/qr?finuseno=${fintechUseNo}`;
+  };
+
+  const handleBalaceClick = () => {
+    window.location.href = `/balance?finuseno=${fintechUseNo}`;
+  };
+
   return (
     <CardBlock>
       <CardTitle>{bankName}</CardTitle>
