@@ -13,7 +13,7 @@ const AuthResultPage = () => {
 
   useEffect(() => {
     getAccessToken();
-  });
+  }, []);
 
   const getAccessToken = () => {
     const sendData = qs.stringify({
@@ -47,7 +47,6 @@ const AuthResultPage = () => {
       <p>{code}</p>
       <p>사용자의 토큰은?</p>
       <p>{accessToken}</p>
-      <AuthButton title={"토큰받기"} handleClick={getAccessToken}></AuthButton>
     </>
   );
 };
