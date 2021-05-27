@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../component/common/Header";
 import AuthButton from "../component/common/AuthButton";
 import axios from "axios";
 
 const ListPage = () => {
   const [acountList, setAccountList] = useState([]);
+  useEffect(() => {
+    getAccountList();
+  }, []);
   const getAccountList = () => {
     const option = {
       method: "GET",
@@ -27,10 +30,6 @@ const ListPage = () => {
   return (
     <>
       <Header title="계좌 목록 확인"></Header>
-      <AuthButton
-        title="계좌 목록 불러오기"
-        handleClick={getAccountList}
-      ></AuthButton>
       {acountList.map((account) => {
         return <p>{account.fintech_use_num}</p>;
       })}
