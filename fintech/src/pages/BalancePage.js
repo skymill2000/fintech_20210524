@@ -7,7 +7,9 @@ import queryString from "query-string";
 const BalancePage = () => {
   const [balance, setBalance] = useState("0");
   const { search } = useLocation();
+  console.log(search);
   const { finuseno } = queryString.parse(search);
+  console.log(finuseno);
 
   useEffect(() => {
     getBalance();
@@ -42,6 +44,17 @@ const BalancePage = () => {
     <>
       <Header title={"잔액 조회"}></Header>
       <p>현재 귀하의 잔액은 : {balance}원 입니다</p>
+      <table>
+        <thead>
+          <tr>
+            <td>순번</td>
+            <td>내용</td>
+            <td>거래내역</td>
+            <td>잔액</td>
+          </tr>
+        </thead>
+        <tbody>{/* 반복적으로 tr>td 작성 */}</tbody>
+      </table>
     </>
   );
 };
