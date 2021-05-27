@@ -7,4 +7,11 @@ module.exports = function (app) {
       changeOrigin: true,
     })
   );
+  app.use(
+    "/v2.0",
+    createProxyMiddleware({
+      target: "https://testapi.openbanking.or.kr",
+      changeOrigin: true,
+    })
+  );
 };
