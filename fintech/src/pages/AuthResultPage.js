@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import queryString from "query-string";
 import Header from "../component/common/Header";
@@ -9,6 +9,7 @@ import qs from "qs";
 const AuthResultPage = () => {
   const { search } = useLocation();
   const { code } = queryString.parse(search);
+  const [accessToken, setaccessToken] = useState("토큰 받아오기 전 데이터");
 
   const getAccessToken = () => {
     const sendData = qs.stringify({
@@ -18,6 +19,9 @@ const AuthResultPage = () => {
       redirect_uri: "http://localhost:3000/authResult",
       grant_type: "authorization_code",
     });
+
+    console.log(sendData);
+
     const option = {
       method: "POST",
       url: "/oauth/2.0/token",
@@ -29,6 +33,7 @@ const AuthResultPage = () => {
     //#homework : 해당 코드가 동작하게 변경해주세요 ! hint : proxy, json serialization on axios
     axios(option).then((response) => {
       console.log(response.data);
+      setaccessToken(response.data.access_token);
     });
   };
 
@@ -37,6 +42,8 @@ const AuthResultPage = () => {
       <Header title={"사용자 발급 토큰 확인"}></Header>
       <p>사용자가 발급받은 사용자 코드는</p>
       <p>{code}</p>
+      <p>사용자의 토큰은?</p>
+      <p>{accessToken}</p>
       <AuthButton title={"토큰받기"} handleClick={getAccessToken}></AuthButton>
     </>
   );
