@@ -20,8 +20,6 @@ const AuthResultPage = () => {
       grant_type: "authorization_code",
     });
 
-    console.log(sendData);
-
     const option = {
       method: "POST",
       url: "/oauth/2.0/token",
