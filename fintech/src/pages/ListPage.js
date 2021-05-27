@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../component/common/Header";
 import AuthButton from "../component/common/AuthButton";
 import axios from "axios";
 
 const ListPage = () => {
-  //axios 통해서 https://testapi.openbanking.or.kr/v2.0/user/me 의 계좌 목록을 받아오기
-  //버튼을 눌렀을때 요청 발생
+  const [acountList, setAccountList] = useState([]);
   const getAccountList = () => {
     const option = {
       method: "GET",
@@ -17,12 +16,14 @@ const ListPage = () => {
         user_seq_no: localStorage.getItem("userSeqNum"),
       },
     };
-    //#homework : 해당 코드가 동작하게 변경해주세요 ! hint : proxy, json serialization on axios
     axios(option).then((response) => {
       console.log(response.data);
+      setAccountList(response.data.res_list);
     });
-    // axios.get(url, {params : {user_seq_no: "1100034736"}}).then
   };
+
+  //getAccountList useEffect 활용해서 불러오기 불러온다음에 acountList set 해주기
+
   return (
     <>
       <Header title="계좌 목록 확인"></Header>
@@ -30,6 +31,9 @@ const ListPage = () => {
         title="계좌 목록 불러오기"
         handleClick={getAccountList}
       ></AuthButton>
+      {acountList.map((account) => {
+        return <p>{account.fintech_use_num}</p>;
+      })}
     </>
   );
 };
