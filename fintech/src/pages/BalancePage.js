@@ -6,6 +6,7 @@ import queryString from "query-string";
 
 const BalancePage = () => {
   const [balance, setBalance] = useState("0");
+  const [transactionList, settransactionList] = useState([]);
   const { search } = useLocation();
   console.log(search);
   const { finuseno } = queryString.parse(search);
@@ -13,6 +14,7 @@ const BalancePage = () => {
 
   useEffect(() => {
     getBalance();
+    getTransactionList();
   }, []);
 
   const genTransId = () => {
@@ -40,6 +42,30 @@ const BalancePage = () => {
     });
   };
 
+  const getTransactionList = () => {
+    const option = {
+      method: "GET",
+      url: "/v2.0/account/transaction_list/fin_num",
+      headers: {
+        Authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      },
+      params: {
+        bank_tran_id: genTransId(),
+        fintech_use_num: finuseno,
+        inquiry_type: "A",
+        inquiry_base: "D",
+        from_date: "20210101",
+        to_date: "20210101",
+        sort_order: "D",
+        tran_dtime: "20210527162800",
+      },
+    };
+    axios(option).then(({ data }) => {
+      console.log(data.res_list);
+      settransactionList(data.res_list);
+    });
+  };
+
   return (
     <>
       <Header title={"잔액 조회"}></Header>
@@ -49,11 +75,22 @@ const BalancePage = () => {
           <tr>
             <td>순번</td>
             <td>내용</td>
-            <td>거래내역</td>
+            <td>금액</td>
             <td>잔액</td>
           </tr>
         </thead>
-        <tbody>{/* 반복적으로 tr>td 작성 */}</tbody>
+        <tbody>
+          {transactionList.map((transaction, index) => {
+            return (
+              <tr key={index}>
+                <td>{index + 1}</td>
+                <td>{transaction.print_content}</td>
+                <td>{transaction.tran_amt}</td>
+                <td>{transaction.after_balance_amt}</td>
+              </tr>
+            );
+          })}
+        </tbody>
       </table>
     </>
   );
