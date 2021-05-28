@@ -81,7 +81,28 @@ const ModalCard = ({ bankName, fintechUseNo, tofintechno }) => {
       headers: {
         Authorization: `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJUOTkxNTk5MTkwIiwic2NvcGUiOlsib29iIl0sImlzcyI6Imh0dHBzOi8vd3d3Lm9wZW5iYW5raW5nLm9yLmtyIiwiZXhwIjoxNjI5OTU3OTAyLCJqdGkiOiIzYzZhZjNjNS05OGFhLTRlYjEtOTY0OS0zZjgxNDZlYmRiMzkifQ.6TcIxyZpkhNtaTph1oB0Y30RcdK1dfC30zqKC7AUvpo`,
       },
-      data: {},
+      data: {
+        cntr_account_type: "N",
+        cntr_account_num: "4262679045",
+        wd_pass_phrase: "NONE",
+        wd_print_content: "환불금액",
+        name_check_option: "off",
+        tran_dtime: "20200721151500",
+        req_cnt: "1",
+        req_list: [
+          {
+            tran_no: "1",
+            bank_tran_id: genTransId(),
+            fintech_use_num: tofintechno,
+            print_content: "쇼핑몰환불",
+            tran_amt: amount,
+            req_client_name: "홍길동",
+            req_client_fintech_use_num: tofintechno,
+            req_client_num: "110435475398",
+            transfer_purpose: "ST",
+          },
+        ],
+      },
     };
     axios(option).then((response) => {
       console.log(response.data);

@@ -42,6 +42,7 @@ const ModalWithdraw = ({ tofintechno }) => {
       setAccountList(response.data.res_list);
     });
   };
+
   return (
     <ModalWithdrawBlock>
       <Slider {...settings}>
