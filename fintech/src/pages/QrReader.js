@@ -24,6 +24,7 @@ const CustomStyles = {
 
 const QrReader = () => {
   const [openModal, setopenModal] = useState(false);
+  const [tofintechno, settofintechno] = useState("");
   //카메라 연결이 불가능한 경우 TURE 변경
   const delay = 500;
 
@@ -34,7 +35,8 @@ const QrReader = () => {
 
   const handleScan = (result) => {
     if (result) {
-      console.log(result);
+      console.log(result.data);
+      settofintechno(result.data);
       setopenModal(true);
     }
   };
@@ -62,7 +64,7 @@ const QrReader = () => {
         onRequestClose={closeModal}
         ariaHideApp={false}
       >
-        <ModalWithdraw></ModalWithdraw>
+        <ModalWithdraw tofintechno={tofintechno}></ModalWithdraw>
       </Modal>
     </div>
   );

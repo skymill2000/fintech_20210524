@@ -12,7 +12,7 @@ const ModalWithdrawBlock = styled.div`
   border: 1px #dfdfdf solid;
 `;
 
-const ModalWithdraw = () => {
+const ModalWithdraw = ({ tofintechno }) => {
   const settings = {
     dots: false,
     infinite: true,
@@ -51,6 +51,7 @@ const ModalWithdraw = () => {
               key={account.fintech_use_num}
               bankName={account.bank_name}
               fintechUseNo={account.fintech_use_num}
+              tofintechno={tofintechno}
             ></ModalCard>
           );
         })}
