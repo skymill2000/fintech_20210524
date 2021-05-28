@@ -7,6 +7,7 @@ import BalancePage from "./pages/BalancePage";
 import ListPage from "./pages/ListPage";
 import MainPage from "./pages/MainPage";
 import NewsPage from "./pages/NewsPage";
+import QrCodePage from "./pages/QrCodePage";
 
 function App() {
   return (
@@ -29,6 +30,9 @@ function App() {
         </Route>
         <Route path="/balance" exact>
           <BalancePage />
+        </Route>
+        <Route path="/qr" exact>
+          <QrCodePage />
         </Route>
       </Switch>
     </Router>

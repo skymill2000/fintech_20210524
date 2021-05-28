@@ -60,6 +60,11 @@ const BalancePage = () => {
         tran_dtime: "20210527162800",
       },
     };
+    //resposnse {
+    //    data : kdkjfdskalj
+    //    error : sdaklfjklasdjf
+    //}
+    //
     axios(option).then(({ data }) => {
       console.log(data.res_list);
       settransactionList(data.res_list);
