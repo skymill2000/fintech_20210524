@@ -8,6 +8,7 @@ import ListPage from "./pages/ListPage";
 import MainPage from "./pages/MainPage";
 import NewsPage from "./pages/NewsPage";
 import QrCodePage from "./pages/QrCodePage";
+import QrReader from "./pages/QrReader";
 
 function App() {
   return (
@@ -33,6 +34,9 @@ function App() {
         </Route>
         <Route path="/qr" exact>
           <QrCodePage />
+        </Route>
+        <Route path="/qrreader" exact>
+          <QrReader />
         </Route>
       </Switch>
     </Router>
