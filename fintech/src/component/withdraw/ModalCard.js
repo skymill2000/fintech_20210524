@@ -68,6 +68,26 @@ const ModalCard = ({ bankName, fintechUseNo, tofintechno }) => {
     };
     axios(option).then((response) => {
       console.log(response.data);
+      if (response.data.rsp_code === "A0000") {
+        deposit();
+      }
+    });
+  };
+
+  const deposit = () => {
+    const option = {
+      method: "POST",
+      url: "v2.0/transfer/deposit/fin_num",
+      headers: {
+        Authorization: `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJUOTkxNTk5MTkwIiwic2NvcGUiOlsib29iIl0sImlzcyI6Imh0dHBzOi8vd3d3Lm9wZW5iYW5raW5nLm9yLmtyIiwiZXhwIjoxNjI5OTU3OTAyLCJqdGkiOiIzYzZhZjNjNS05OGFhLTRlYjEtOTY0OS0zZjgxNDZlYmRiMzkifQ.6TcIxyZpkhNtaTph1oB0Y30RcdK1dfC30zqKC7AUvpo`,
+      },
+      data: {},
+    };
+    axios(option).then((response) => {
+      console.log(response.data);
+      if (response.data.rsp_code === "A0000") {
+        alert("송금 완료 / 결제 완료");
+      }
     });
   };
 
