@@ -23,7 +23,6 @@ const QrCodePage = () => {
       <Header title="QR 코드 생성"></Header>
       <QRBlock>
         <QRCode value={finuseno} />
-        {/* finctech 벊호가 value 입력될 수 있게 만들엊 ㅜ세요 */}
         <p>{finuseno}</p>
       </QRBlock>
     </>
