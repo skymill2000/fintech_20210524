@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Slider from "react-slick";
 import ModalCard from "./ModalCard";
+import axios from "axios";
 
 const ModalWithdrawBlock = styled.div`
   display: flex;
@@ -20,10 +21,39 @@ const ModalWithdraw = () => {
     slidesToScroll: 1,
   };
 
+  const [acountList, setAccountList] = useState([]);
+  useEffect(() => {
+    getAccountList();
+  }, []);
+
+  const getAccountList = () => {
+    const option = {
+      method: "GET",
+      url: "/v2.0/user/me",
+      headers: {
+        Authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      },
+      params: {
+        user_seq_no: localStorage.getItem("userSeqNum"),
+      },
+    };
+    axios(option).then((response) => {
+      console.log(response.data);
+      setAccountList(response.data.res_list);
+    });
+  };
   return (
     <ModalWithdrawBlock>
       <Slider {...settings}>
-        <ModalCard bankName="test" fintechUseNo="test"></ModalCard>
+        {acountList.map((account) => {
+          return (
+            <ModalCard
+              key={account.fintech_use_num}
+              bankName={account.bank_name}
+              fintechUseNo={account.fintech_use_num}
+            ></ModalCard>
+          );
+        })}
       </Slider>
     </ModalWithdrawBlock>
   );

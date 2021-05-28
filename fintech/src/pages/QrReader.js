@@ -24,6 +24,7 @@ const CustomStyles = {
 
 const QrReader = () => {
   const [openModal, setopenModal] = useState(false);
+  //카메라 연결이 불가능한 경우 TURE 변경
   const delay = 500;
 
   const previewStyle = {
